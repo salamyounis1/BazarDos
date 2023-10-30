@@ -16,7 +16,22 @@ import org.json.JSONObject;
 
 public class FrontendService {
     public static void main(String[] args) {
-     
+       port(8087);
+            get("/search/:topic", (req, res) -> {
+      
+        });
+
+       
+
+        put("/purchase/:ID", (req, res) -> {
+           
+
+        });
+         get("/info/:ID", (req, res) -> {
+         
+        });
+       
+
        
     }
 }
