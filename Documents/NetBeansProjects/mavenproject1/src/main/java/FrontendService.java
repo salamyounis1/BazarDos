@@ -17,8 +17,11 @@ import org.json.JSONObject;
 public class FrontendService {
     public static void main(String[] args) {
        port(8087);
+       
             get("/search/:topic", (req, res) -> {
-      
+      String T=req.params(":topic");
+      String ResCat=CatalogService.searchbytopic(T);
+      return ResCat;
         });
 
        
@@ -28,6 +31,10 @@ public class FrontendService {
 
         });
          get("/info/:ID", (req, res) -> {
+         String itNum=req.params(":ID");
+         
+      String ResCat=CatalogService.infoID(itNum);
+      return ResCat;
          
         });
        
