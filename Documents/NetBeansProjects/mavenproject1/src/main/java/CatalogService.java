@@ -92,10 +92,12 @@ public class CatalogService {
 
    private static Connection DBcon() {
     Connection connection = null;
+    
     try {
         Class.forName("org.sqlite.JDBC");
         
         connection = DriverManager.getConnection("jdbc:sqlite:sqliteDB.db");
+        
         
         if (connection != null) {
             System.out.println("Connected to the database.");
