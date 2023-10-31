@@ -27,7 +27,10 @@ public class FrontendService {
        
 
         put("/purchase/:ID", (req, res) -> {
-           
+             String itNum=req.params(":ID");
+         
+      String ResCat=order.purchase(itNum);
+      return ResCat;
 
         });
          get("/info/:ID", (req, res) -> {
