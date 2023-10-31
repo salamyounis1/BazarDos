@@ -51,7 +51,7 @@ public class order {
                     result.put("status", "The Item is out of stock.");
                 }
             } else {
-                result.put("status", "Item not found the Item.");
+                result.put("status", "Item not found .");
             }
         } catch (SQLException e) {
             e.printStackTrace();

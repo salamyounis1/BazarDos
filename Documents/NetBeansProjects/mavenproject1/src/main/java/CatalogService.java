@@ -17,6 +17,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.json.JSONArray;
 
 public class CatalogService {
     public static void main(String[] args) {
@@ -37,11 +38,11 @@ public class CatalogService {
         });
     }
 
-    public static String searchbytopic(String topic) {
+   public static String searchbytopic(String topic) {
         
          Connection connection = DBcon();
          
-        JSONObject result = new JSONObject();
+        JSONArray result = new JSONArray();
         try {
             String query = "SELECT * FROM catalog WHERE topic = ?";
             
@@ -55,8 +56,9 @@ public class CatalogService {
                 entry.put("ID", Set.getString("ID"));
                 entry.put("Hstock", Set.getInt("Hstock"));
                 entry.put("cost", Set.getDouble("cost"));
+                entry.put("title", Set.getString("title2"));
                 entry.put("topic", Set.getString("topic"));
-                result.put(Set.getString("ID"), entry);
+                result.put(entry);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -64,6 +66,7 @@ public class CatalogService {
         
         return result.toString();
     }
+
 
     public static String infoID(String itemNumber) {
          Connection connection = DBcon();
@@ -81,6 +84,7 @@ public class CatalogService {
                 entry.put("ID", resultSet.getString("ID"));
                 entry.put("Hstock", resultSet.getInt("Hstock"));
                 entry.put("cost", resultSet.getDouble("cost"));
+                entry.put("title", resultSet.getString("title2"));
                 entry.put("topic", resultSet.getString("topic"));
                 result.put(resultSet.getString("ID"), entry);
             }
