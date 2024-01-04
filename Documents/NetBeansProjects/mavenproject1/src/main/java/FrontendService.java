@@ -31,7 +31,11 @@ public class FrontendService {
         }
 
         // Set up caching
-        Cache cache = new Cache();
+        Cache cache = new Cache();    
+        
+        
+        
+        
 
         get("/search/:topic", (req, res) -> {
             String T = req.params(":topic");
@@ -72,7 +76,7 @@ public class FrontendService {
             String cheak_cache = cache.get("info-" + itNum);
             if (cheak_cache != null) {
                 return cheak_cache;
-            }
+            } 
 
             // Forward the request to a replica using a load balancing algorithm
             int replicaIndex = loadBalancingAlgorithm(itNum, Number_of_REPLICAS);
@@ -83,7 +87,7 @@ public class FrontendService {
 
             return result;
         });
-    }
+    } 
 
     // Load balancing algorithm (simplified round-robin)
     private static int loadBalancingAlgorithm(String item, int number_of_Replicas) {
