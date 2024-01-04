@@ -1,0 +1,12 @@
+
+
+# Dockerfile for Service 3
+
+FROM openjdk:15
+
+# Copy the Java source file to the image
+COPY order.java C:\Users\twitter\Documents\NetBeansProjects\mavenproject1\src\main\java/FrontendService.java
+
+# Compile and run the Java program
+
+CMD ["java", "-cp", "C:\Users\twitter\Documents\NetBeansProjects\mavenproject1\src\main\java", "FrontendService.java"]

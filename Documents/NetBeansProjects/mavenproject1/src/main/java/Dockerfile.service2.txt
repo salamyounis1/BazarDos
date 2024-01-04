@@ -1,0 +1,11 @@
+
+# Dockerfile for Service 2
+
+FROM openjdk:15
+
+# Copy the Java source file to the image
+COPY order.java /app/CatalogService.java
+
+# Compile and run the Java program
+CMD ["javac", "/app/CatalogService.java"]
+CMD ["java", "/app/CatalogService"]
